@@ -11,7 +11,7 @@ def read(fname):
 
 setup(
     name = "minnesota",
-    version = "0.0.1",
+    version = "0.0.2",
     author = "Spaceb4r - SPB Production",
     author_email = "-",
     description = ("Demo Setup"),
@@ -32,8 +32,8 @@ setup(
 
     long_description=read('README.md'),
     classifiers=[
-        "Development Status :: 1 - Alpha",
+        "Development Status :: 0.0.2",
         "Topic :: Utilities",
-        "License :: OSI Approved :: BSD License",
+        "License :: MIT License",
     ],
 )
