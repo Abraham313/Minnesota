@@ -78,6 +78,8 @@ status | show the current server status
 
 Inside the main shell all the commands supported depend by the remote OS but usually __all Linux commands are supported__ as well since it's a full native shell.
 
+__MINNESOTA CLI__ supports tab complete to allow a fast use.
+
 ## <u>Logs</u>
 
 __Version 0.0.2__: 
