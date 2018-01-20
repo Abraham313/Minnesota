@@ -26,11 +26,6 @@ __VERSION__ = "0.0.2"
 STATUS_SERVER = 0 # 0 = Running
 SOCKET_INUSE  = ''
 
-#
-# TODO : Inserire controllo continuo connessione internet , e notificare quando
-# si e' offline
-
-
 def help():
         help_menu_0 = '''
 Usage : python minnesota.py
