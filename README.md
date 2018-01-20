@@ -42,6 +42,11 @@ Now the user is able to run __Minnesota__ as binary from every location on the m
 
 `minnesota`
 
+
+![Minnesota](minnesota/images/Screen1.png)
+![Minnesota](minnesota/images/Screen2.png)
+
+
 ## <u>Agent Deployment</u>
 
 To start the Minnesota agent is necessary run the bash script , __DO NOT RUN__ directly the agent.py because when the shell is destroyed by the C&C it will keep the connection closed . 
