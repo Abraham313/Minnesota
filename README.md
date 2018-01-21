@@ -6,8 +6,8 @@ Minnesota is a __Open-source__ project born with the intent to offer the best so
 
 ## <u>How does it work</u> ?
 
-This software is completly written in __Python 2.7__ and can be executed on any __Linux__ machine and __it doesn't require any external library__ , soon will be implemented the __most stable shell on Windows__ too.
-The communication between the C&C and the client is performed via __TCP protocol__ and it exploits __pseudo-terminal__ to deploy a shell for the bot-master.
+This software is completly written in __Python 2.7__ and can be executed on any __Linux__ machine, soon will be implemented the __most stable shell on Windows__ too.
+The communication between the C&C and the client is performed via __TCP protocol__ and it exploits __pseudo-terminal__ to deploy a shell for the final user.
 
 The main heart of the remote command execution is the following : `pty.spawn(...)` , using this syntax the software will generate a separated __PTY instance__ where the user can works without touching all the others local shells.
 
