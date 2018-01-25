@@ -46,7 +46,7 @@ def help():
         help_menu_0 = '''
 Usage : python minnesota.py
 
-C&C server for a TCP network'''
+C&C server for a SCTP network'''
 
         help_menu_2 = '''
 Minnesota CLI Commands:

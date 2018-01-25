@@ -1,0 +1,3 @@
+[console_scripts]
+minnesota = minnesota.__main__:main
+
