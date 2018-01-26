@@ -44,7 +44,7 @@ Any kind of other reverse shell written in Python presents a large number of pro
 ## <u>Pre-Deployment</u>
 To set up the C&C correctly it's necessary to modify the `server.conf` file. Replace __HOST__ with the machine server IP , usually this is the LAN ip or just `0.0.0.0` to let the server to listen on every ip address available , of course it'll be necessary a port forwading on the main gateway ; now the user need to declaire the port for the reverse shell connection defined as __RPORT__ ,after that replace the __PORT__ and __MAXCONN__ where the last one means the maximum number of connections that the server will accept. 
 
-Of course these settings must be reflected on the agent so in the file `agent.py` must be modified the IP and the PORT by _server.conf_ file. After that the shell uses by default the port (__RPORT for the C&C__) `31337` and it can be modified in both of files `tcp_pty_shell_handler.py` and `tcp_pty_backconnect.py` such as the Ip address but usually the backconnection hostname is the same .
+Of course these settings must be reflected on the agent so in the file `agent.py` must be modified the IP and the PORT by _server.conf_ file. After that the shell uses by default the port (__RPORT for the C&C for Linux__) `31337` and `31338`(__RPORT for the C&C for Windows__) .
 
 ## <u>Server Deployment</u>
 
