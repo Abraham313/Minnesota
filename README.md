@@ -22,7 +22,7 @@ Minnesota borns to be easy to deploy and to use , from the official repo is nece
 
 Minnesota is a software CLI based, so performing a little trick with SSH or even the same Minnesota the user can access to his own C&C from a simple mobile phone.
 
-![Minnesota Mobile](minnesota/images/MinMob.jpeg)
+![Minnesota Mobile](minnesota/images/MinMobile.jpeg)
 
 ## <u>Why Pseudo-Terminal</u> ?
 
