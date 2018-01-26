@@ -18,6 +18,11 @@ The main heart of the remote command execution is the following : `pty.spawn(...
 There's no other Python based ultra stable multi connection handler with a multiplatform agent composed by just __3 Kb__, all other reverse shells aren't stable and in the 75% of the cases the user looses the connection hardly gained because of a bug, the other softwares don't serve a __native shell__ for the final user , they just execute the command received and return the output not matter what. After that, from the verson __0.0.3__, Minnesota comes out with an integrated binder that allows to the user to accept connection from almost __ANY__ kind of __REVERSE SHELL__, becoming the little brother of __NETCAT__. 
 Minnesota borns to be easy to deploy and to use , from the official repo is necessary to download and configure the handler to get a reverse shell from any machine in few seconds.
 
+![Minnesota Desktop](minnesota/images/Min1.png)
+
+Minnesota is a software CLI based, so performing a little trick with SSH or even the same Minnesota the user can access to his own C&C from a simple mobile phone.
+
+![Minnesota Mobile](minnesota/images/MinMob.jpeg)
 
 ## <u>Why Pseudo-Terminal</u> ?
 
