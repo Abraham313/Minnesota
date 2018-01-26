@@ -11,10 +11,10 @@ def read(fname):
 
 setup(
     name = "minnesota",
-    version = "0.0.1",
+    version = "0.0.3",
     author = "Spaceb4r - SPB Production",
     author_email = "-",
-    description = ("Demo Setup"),
+    description = ("Release"),
     license = "BSD",
     packages=['minnesota', 'minnesota'],
     entry_points={
@@ -32,7 +32,7 @@ setup(
 
     long_description=read('README.md'),
     classifiers=[
-        "Development Status :: 1 - Alpha",
+        "Development Status :: 3 - Release",
         "Topic :: Utilities",
         "License :: OSI Approved :: BSD License",
     ],
